@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Merchant's Guide To Alien Galaxy</title>
+      <link href="tooplate_style.css" rel="stylesheet" type="text/css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
+   </head>
+   <body>
+      <div id="slider">
+      <div id="tooplate_wrapper">
+         <div id="content">
+            <div class="scroll">
+               <div class="scrollContainer">
+                  <div class="panel" id="home" style="overflow: auto">
+                     <div class="col_380 float_l">
+                        <h1>Welcome to Galaxy</h1>
+                     </div>
+                     <div>
+                        <input type="text" id="text1"></input>
+                        <input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+                        <div id="Result"></div>
+                        <div>
+                           <hr/>
+                           <input type="button" value = "Calculate" onclick="Calculate()"></input>
+                           <div id="Output"></div>
+                        </div>
+                     </div>
+                     <br>
+                  </div>
+               </div>
+               <div class="cleaner"></div>
+            </div>
+         </div>
+      </div>
+   </body>
+   <script>
+      var x = 0;
+      var array = Array();
+       
+      function add_element_to_array()
+      {
+          if(document.getElementById("text1").value.length!=0)
+       {
+           array[x] = document.getElementById("text1").value;
+
+           x++;
+           document.getElementById("text1").value = "";
+       }
+      
+     
+      display_array();
+       
+      }
+       
+      function display_array()
+      {
+         var e = "<hr/>";   
+          
+         for (var y=0; y<array.length; y++)
+         {
+           e += array[y] + "<br/>";
+         }
+         document.getElementById("Result").innerHTML = e;
+      }
+       
+      function display_Output(array)
+      {
+         var e = "<hr/>";   
+          
+         for (var y=0; y<array.length; y++)
+         {
+             if(array[y].length>0)
+             {
+           e +=  array[y] + "<br/>";
+             }
+         }
+         document.getElementById("Output").innerHTML = e;
+      }
+      function Calculate()
+      {
+        object = {};
+		for (var i = 0; i < array.length; i += 1)
+		{
+			object[i]=array[i];
+		}
+        
+        
+		$.ajax({
+			type: "POST",
+			url: "https://localhost:44332/api/Galaxy",
+			data: object,
+			dataType: 'json',
+			success: function(data){
+                display_Output(data);
+			},
+			traditional: true
+		});
+      
+      }
+       
+   </script>
+</html>

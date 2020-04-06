@@ -1,0 +1,44 @@
+/*
+
+Template 2021 Galaxy
+
+http://www.tooplate.com/view/2021-galaxy
+
+*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #7f7467;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em; 
+	background-color: #07080a;
+	background-image: url(images/tooplate_body.jpg);
+	background-repeat: no-repeat;
+	background-position: top center
+}
+
+h1, h2, h3, h4, h5, h6 { color: #fadc0f; font-family: Georgia, "Times New Roman", Times, serif; }
+h1 { font-size: 38px; font-weight: normal; margin: 0 0 20px 0; padding: 5px 0; }
+h2 { font-size: 30px; font-weight: normal; margin: 0 0 30px 0; font-weight: normal; }
+h3 { font-size: 16px; margin: 0 0 15px 0; padding: 0; padding: 0; font-weight: normal;  }
+h4 { font-size: 14px; margin: 0 0 5px 0; padding: 0; }
+
+
+
+.col_380 { width: 380px; } 
+.col_320 { width: 320px; }
+.col_270 { width: 270px; }
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
